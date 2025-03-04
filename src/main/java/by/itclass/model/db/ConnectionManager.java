@@ -21,7 +21,7 @@ public class ConnectionManager {
     }
 
     public static Connection getConnection() throws SQLException {
-        if (cn == null) {
+        if (cn == null || cn.isClosed()) {
             cn = DriverManager.getConnection(URL, USER, PASS);
         }
         return cn;
