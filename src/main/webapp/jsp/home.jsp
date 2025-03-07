@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+    <jsp:include page="<%=MENU_JSP%>"/>
     <h2>User Info:</h2>
     <p>Id: ${user.id}</p>
     <p>Name: ${user.name}</p>

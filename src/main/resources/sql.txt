@@ -1,0 +1,61 @@
+CREATE TABLE user (
+   id int AUTO_INCREMENT PRIMARY KEY,
+   name VARCHAR(50) NOT NULL,
+   email VARCHAR(50) NOT NULL,
+   login VARCHAR(50) NOT NULL,
+   password VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE tv(
+   id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   vendor varchar(50) NOT NULL,
+   model varchar(50) NOT NULL,
+   screenSize int NOT NULL,
+   price double NOT NULL
+);
+
+INSERT INTO tv (vendor, model, screenSize, price) VALUES
+   ('LG', '65UR78001LJ', 65, 2199.99),
+   ('LG', '55UR78001LJ', 55, 1779.99),
+   ('Samsung', 'UE43AU7002UXRU', 43, 1199.99),
+   ('Samsung', 'UE32T5300AUXCE', 32, 989.99),
+   ('Horizont', '32LE7511D', 32, 479.99),
+   ('Horizont', '55LE7511D', 55, 1269.99);
+
+CREATE TABLE laptop(
+   id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   vendor varchar(50) NOT NULL,
+   model varchar(50) NOT NULL,
+   cpu varchar(50) NOT NULL,
+   memorySize int NOT NULL,
+   price double NOT NULL
+);
+
+INSERT INTO laptop (vendor, model, cpu, memorySize, price) VALUES
+   ('HP', 'ProBook 455 G9', 'AMD', 16, 3728.56),
+   ('HP', 'Pavilion 14-dv2005ci', 'Intel', 8, 2699.56),
+   ('Lenovo', 'IdeaPad Slim 3 15AMN8', 'AMD', 8, 1379.55),
+   ('Lenovo', 'IdeaPad Gaming 3 15IHU6', 'Intel', 8, 3099.56),
+   ('Dell', 'Vostro 15 3515-377831', 'AMD', 8, 2899.99),
+   ('Dell', 'Latitude 14 5411', 'Intel', 16, 3727.45);
+
+CREATE TABLE orders (
+   id varchar(50) NOT NULL PRIMARY KEY,
+   date date NOT NULL,
+   userId int NOT NULL,
+   address varchar(50) NOT NULL,
+   FOREIGN KEY (userId) REFERENCES user (id)
+                    ON DELETE CASCADE ON UPDATE RESTRICT
+);
+
+
+CREATE TABLE orderItem (
+   orderId varchar(50) NOT NULL,
+   itemType int NOT NULL,
+   itemId int NOT NULL,
+   itemPrice double NOT NULL,
+   quantity int NOT NULL,
+   FOREIGN KEY (orderId) REFERENCES orders (id)
+                    ON DELETE CASCADE ON UPDATE RESTRICT
+);
+
