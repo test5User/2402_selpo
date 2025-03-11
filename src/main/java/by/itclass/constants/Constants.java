@@ -10,9 +10,12 @@ public class Constants {
     public static final String MODEL_PARAM = "model";
     public static final String SCREEN_SIZE_PARAM = "screenSize";
     public static final String PRICE_PARAM = "price";
+    public static final String PRICE_FROM_PARAM = "priceFrom";
+    public static final String PRICE_TO_PARAM = "priceTo";
 
     public static final String MESSAGE_ATTR = "message";
     public static final String USER_ATTR = "user";
+    public static final String TVS_ATTR = "tvs";
 
     public static final String LOGIN_CONTROLLER = "/login";
     public static final String LOGOUT_CONTROLLER = "/logout";
@@ -24,7 +27,9 @@ public class Constants {
     public static final String INDEX_JSP = "/index.jsp";
     public static final String REGISTRATION_JSP = "/jsp/registration.jsp";
     public static final String MENU_JSP = "/jsp/menu.jsp";
+    public static final String TV_PAGE_JSP = "/jsp/filters/tv-page.jsp";
 
     public static final String BACKGROUND_IMAGE = "/img/background-img.jpg";
     public static final String SLIDER = "/jsp/slider/slider.html";
+    public static final String TV_FILTER = "/jsp/filters/tv-filter.html";
 }

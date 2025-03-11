@@ -91,3 +91,79 @@ body {
     from {opacity: .4}
     to{opacity: 1}
 }
+
+/*стили для плашек товаров*/
+.stock-item-box {
+    background-color: lightgray;
+    width: 250px;
+    border: 3px solid forestgreen;
+    padding: 15px;
+    margin: 25px;
+    display: inline-block;
+}
+
+.small-image {
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*стили для вертикального меню*/
+
+.vertical-menu {
+    width: 300px;
+    float: right;
+}
+
+.vertical-menu a {
+    background-color: lightgray;
+    color: black;
+    display: block;
+    padding: 12px;
+}
+
+.vertical-menu a:hover {
+    background-color: dimgray;
+}
+
+.vertical-menu a.active {
+    background-color: forestgreen;
+    color: white;
+    text-align: center;
+    font-size: 22px;
+}
+
+.filter-container {
+    display: block;
+    position: relative;
+    padding-left: 70px;
+    padding-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    background-color: lightgray;
+}
+
+.filter-container input[type=checkbox] {
+    position: absolute;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    left: 20px;
+    top: 0;
+}
+
+.filter-container input[type=number] {
+    position: absolute;
+    cursor: pointer;
+    height: 25px;
+    width: 60px;
+    left: 5px;
+    top: -4px;
+}
+
+.vertical-menu input[type=submit] {
+    width: 297px;
+    font-size: 22px;
+    font-family: auto;
+}

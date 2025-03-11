@@ -8,11 +8,7 @@
 </head>
 <body>
     <jsp:include page="<%=MENU_JSP%>"/>
-    <h2>User Info:</h2>
-    <p>Id: ${user.id}</p>
-    <p>Name: ${user.name}</p>
-    <p>Email: ${user.email}</p>
-    <p>Login: ${user.login}</p>
-    <p>Password: ${user.password}</p>
+    <jsp:include page="<%=SLIDER%>"/>
+    <script src="/js/slider.js"></script>
 </body>
 </html>
