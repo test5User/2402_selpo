@@ -8,19 +8,32 @@ public class Constants {
     public static final String EMAIL_PARAM = "email";
     public static final String VENDOR_PARAM = "vendor";
     public static final String MODEL_PARAM = "model";
+    public static final String CPU_PARAM = "cpu";
     public static final String SCREEN_SIZE_PARAM = "screenSize";
+    public static final String MEMORY_SIZE_PARAM = "memorySize";
     public static final String PRICE_PARAM = "price";
     public static final String PRICE_FROM_PARAM = "priceFrom";
     public static final String PRICE_TO_PARAM = "priceTo";
+    public static final String CART_ACTION_PARAM = "cartAction";
+    public static final String ITEM_TYPE_PARAM = "itemType";
+    public static final String ITEM_ID_PARAM = "itemId";
+    public static final String ITEM_VENDOR_PARAM = "itemVendor";
+    public static final String ITEM_MODEL_PARAM = "itemModel";
+    public static final String ITEM_PRICE_PARAM = "itemPrice";
+    public static final String QUANTITY_PARAM = "quantity";
 
     public static final String MESSAGE_ATTR = "message";
     public static final String USER_ATTR = "user";
     public static final String TVS_ATTR = "tvs";
+    public static final String LAPTOPS_ATTR = "laptops";
+    public static final String ORDER_ITEMS_ATTR = "orderItems";
 
     public static final String LOGIN_CONTROLLER = "/login";
     public static final String LOGOUT_CONTROLLER = "/logout";
     public static final String REGISTRATION_CONTROLLER = "/registration";
     public static final String TV_CONTROLLER = "/tv";
+    public static final String LAPTOP_CONTROLLER = "/laptop";
+    public static final String CART_CONTROLLER = "/cart";
 
     public static final String LOGIN_JSP = "/jsp/login.jsp";
     public static final String HOME_JSP = "/jsp/home.jsp";
@@ -28,8 +41,10 @@ public class Constants {
     public static final String REGISTRATION_JSP = "/jsp/registration.jsp";
     public static final String MENU_JSP = "/jsp/menu.jsp";
     public static final String TV_PAGE_JSP = "/jsp/filters/tv-page.jsp";
+    public static final String LAPTOP_PAGE_JSP = "/jsp/filters/laptop-page.jsp";
 
     public static final String BACKGROUND_IMAGE = "/img/background-img.jpg";
     public static final String SLIDER = "/jsp/slider/slider.html";
     public static final String TV_FILTER = "/jsp/filters/tv-filter.html";
+    public static final String LAPTOP_FILTER = "/jsp/filters/laptop-filter.html";
 }

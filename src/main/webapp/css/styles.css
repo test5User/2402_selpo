@@ -167,3 +167,15 @@ body {
     font-size: 22px;
     font-family: auto;
 }
+
+/*стили для кнопки добавления в корзину*/
+
+.stock-item-box input[type=submit] {
+    width: 200px;
+    background-color: forestgreen;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    margin: 0 25px;
+    cursor: pointer;
+}
