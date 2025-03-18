@@ -42,6 +42,7 @@ public class Constants {
     public static final String MENU_JSP = "/jsp/menu.jsp";
     public static final String TV_PAGE_JSP = "/jsp/filters/tv-page.jsp";
     public static final String LAPTOP_PAGE_JSP = "/jsp/filters/laptop-page.jsp";
+    public static final String CART_JSP = "/jsp/cart.jsp";
 
     public static final String BACKGROUND_IMAGE = "/img/background-img.jpg";
     public static final String SLIDER = "/jsp/slider/slider.html";
