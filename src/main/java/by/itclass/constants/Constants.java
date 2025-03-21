@@ -28,6 +28,7 @@ public class Constants {
     public static final String TVS_ATTR = "tvs";
     public static final String LAPTOPS_ATTR = "laptops";
     public static final String ORDER_ITEMS_ATTR = "orderItems";
+    public static final String ORDER_ID_ATTR = "orderId";
 
     public static final String LOGIN_CONTROLLER = "/login";
     public static final String LOGOUT_CONTROLLER = "/logout";
