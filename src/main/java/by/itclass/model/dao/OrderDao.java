@@ -1,6 +1,7 @@
 package by.itclass.model.dao;
 
 import by.itclass.model.db.ConnectionManager;
+import by.itclass.model.entities.Order;
 import by.itclass.model.entities.OrderItem;
 import by.itclass.model.entities.User;
 import jakarta.servlet.http.HttpSession;
@@ -9,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import static by.itclass.constants.Constants.*;
@@ -16,6 +18,7 @@ import static by.itclass.constants.Constants.*;
 public class OrderDao {
     public static final String INSERT_ORDER = "INSERT INTO orders (id, date, userId, address) VALUES (?, ?, ?, ?)";
     public static final String INSERT_ORDER_ITEM = "INSERT INTO orderItem (orderId, itemType, itemId, itemPrice, quantity) VALUES (?, ?, ?, ?, ?)";
+    public static final String SELECT_ORDERS = "SELECT id, date, address FROM orders WHERE userId = ? ORDER BY id DESC";
     private static OrderDao dao;
 
     private OrderDao() {
@@ -74,5 +77,23 @@ public class OrderDao {
         ps.setDouble(4, item.getItemPrice());
         ps.setInt(5, item.getQuantity());
         ps.executeUpdate();
+    }
+
+    public List<Order> selectOrders(int userId) {
+        var orders = new ArrayList<Order>();
+        try (var cn = ConnectionManager.getConnection();
+             var ps = cn.prepareStatement(SELECT_ORDERS)){
+            ps.setInt(1, userId);
+            var rs = ps.executeQuery();
+            while (rs.next()) {
+                var id = rs.getString(ID_PARAM);
+                var date = rs.getString(DATE_PARAM);
+                var address = rs.getString(ADDRESS_PARAM);
+                orders.add(new Order(id, date, address));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return orders;
     }
 }
