@@ -30,6 +30,14 @@
             <li class="nav-li">
                 <a href="<%=ORDERS_HISTORY_CONTROLLER%>">Orders</a>
             </li>
+            <c:if test="${user.login eq 'admin'}">
+                <li class="nav-li">
+                    <a href="<%=ALL_USERS_CONTROLLER%>">Users List</a>
+                </li>
+                <li class="nav-li">
+                    <a href="<%=ADMIN_JSP%>">Admin</a>
+                </li>
+            </c:if>
         </c:otherwise>
     </c:choose>
 </ul>

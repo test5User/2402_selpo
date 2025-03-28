@@ -31,6 +31,8 @@ public class Constants {
     public static final String ORDER_ITEMS_ATTR = "orderItems";
     public static final String ORDER_ID_ATTR = "orderId";
     public static final String ORDERS_ATTR = "orders";
+    public static final String USERS_ATTR = "users";
+    public static final String RECEIPT_ATTR = "orderReceipt";
 
     public static final String LOGIN_CONTROLLER = "/login";
     public static final String LOGOUT_CONTROLLER = "/logout";
@@ -41,6 +43,8 @@ public class Constants {
     public static final String ORDER_CONTROLLER = "/order";
     public static final String ORDERS_HISTORY_CONTROLLER = "/ordersHistory";
     public static final String PRINT_ORDER_CONTROLLER = "/printOrder";
+    public static final String ADMIN_CONTROLLER = "/admin";
+    public static final String ALL_USERS_CONTROLLER = "/allUsers";
 
     public static final String LOGIN_JSP = "/jsp/login.jsp";
     public static final String HOME_JSP = "/jsp/home.jsp";
@@ -51,6 +55,9 @@ public class Constants {
     public static final String LAPTOP_PAGE_JSP = "/jsp/filters/laptop-page.jsp";
     public static final String CART_JSP = "/jsp/cart.jsp";
     public static final String ORDERS_JSP = "/jsp/orders.jsp";
+    public static final String ADMIN_JSP = "/jsp/admin.jsp";
+    public static final String USERS_JSP = "/jsp/users.jsp";
+    public static final String RECEIPT_JSP = "/jsp/receipt.jsp";
 
     public static final String BACKGROUND_IMAGE = "/img/background-img.jpg";
     public static final String SLIDER = "/jsp/slider/slider.html";

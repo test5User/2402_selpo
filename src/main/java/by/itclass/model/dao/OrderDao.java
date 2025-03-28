@@ -3,6 +3,7 @@ package by.itclass.model.dao;
 import by.itclass.model.db.ConnectionManager;
 import by.itclass.model.entities.Order;
 import by.itclass.model.entities.OrderItem;
+import by.itclass.model.entities.Receipt;
 import by.itclass.model.entities.User;
 import jakarta.servlet.http.HttpSession;
 
@@ -19,6 +20,7 @@ public class OrderDao {
     public static final String INSERT_ORDER = "INSERT INTO orders (id, date, userId, address) VALUES (?, ?, ?, ?)";
     public static final String INSERT_ORDER_ITEM = "INSERT INTO orderItem (orderId, itemType, itemId, itemPrice, quantity) VALUES (?, ?, ?, ?, ?)";
     public static final String SELECT_ORDERS = "SELECT id, date, address FROM orders WHERE userId = ? ORDER BY id DESC";
+    public static final String SELECT_ORDER = "SELECT date, address FROM orders WHERE id = ?";
     private static OrderDao dao;
 
     private OrderDao() {
@@ -95,5 +97,23 @@ public class OrderDao {
             e.printStackTrace();
         }
         return orders;
+    }
+
+    public Receipt buildReceipt(String orderId) {
+        var receipt = new Receipt();
+        try (var cn = ConnectionManager.getConnection();
+             var ps = cn.prepareStatement(SELECT_ORDER)){
+            ps.setString(1, orderId);
+            var rs = ps.executeQuery();
+            if (rs.next()) {
+                var date = rs.getString(DATE_PARAM);
+                var address = rs.getString(ADDRESS_PARAM);
+                receipt.setOrder(new Order(orderId, date, address));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return receipt;
     }
 }

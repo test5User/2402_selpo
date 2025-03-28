@@ -5,6 +5,8 @@ import by.itclass.model.entities.User;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static by.itclass.constants.Constants.*;
 
@@ -12,6 +14,7 @@ public class UserDao {
     public static final String SELECT_USER = "SELECT * FROM user WHERE login = ? AND password = ?";
     public static final String INSERT_USER = "INSERT INTO user(name, login, email, password) VALUES (?, ?, ?, ?)";
     public static final String CHECK_USER = "SELECT id FROM user WHERE login = ?";
+    public static final String ALL_USERS = "SELECT * FROM user";
 
     private static UserDao dao;
 
@@ -64,5 +67,35 @@ public class UserDao {
 
     private boolean isAccessible(PreparedStatement ps) throws SQLException {
         return !ps.executeQuery().next();
+    }
+
+    public int selectIdByLogin(String login) {
+        try (var cn = ConnectionManager.getConnection();
+             var ps = cn.prepareStatement(CHECK_USER)){
+            ps.setString(1, login);
+            var rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(ID_PARAM);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public List<User> selectAllUsers() {
+        var users = new ArrayList<User>();
+        try (var cn = ConnectionManager.getConnection();
+             var st = cn.createStatement()){
+            var rs = st.executeQuery(ALL_USERS);
+            while (rs.next()) {
+                var name = rs.getString(NAME_PARAM);
+                var login = rs.getString(LOGIN_PARAM);
+                users.add(new User(name, login));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return users;
     }
 }

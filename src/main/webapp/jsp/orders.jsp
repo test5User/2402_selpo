@@ -22,7 +22,7 @@
             </c:forEach>
         </c:when>
         <c:otherwise>
-            <p>You have no orders at the moment</p>
+            <p>User have no orders at the moment</p>
         </c:otherwise>
     </c:choose>
 </body>
